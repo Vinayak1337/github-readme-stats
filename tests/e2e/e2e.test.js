@@ -42,12 +42,12 @@ describe("Live profile deployment", () => {
     [
       "streak",
       "/api/streak?username=Vinayak1337&theme=merko",
-      "CONTRIBUTION STREAK",
+      "Current Streak",
     ],
     [
       "trophy",
       "/api/trophy?username=Vinayak1337&theme=merko",
-      "GITHUB TROPHIES",
+      "GitHub Trophies",
     ],
   ])("serves the %s card", async (_name, path, title) => {
     const response = await request(path);

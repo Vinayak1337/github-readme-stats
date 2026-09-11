@@ -179,7 +179,7 @@ it("can serve the bundled baseline on a cold-start double outage", async () => {
   const res = { setHeader: jest.fn(), send: jest.fn() };
   await createHandler("trophy")({ query: {} }, res);
   expect(res.statusCode).toBeUndefined();
-  expect(res.send.mock.calls[0][0]).toContain("GITHUB TROPHIES");
+  expect(res.send.mock.calls[0][0]).toContain("GitHub Trophies");
   expect(res.setHeader).toHaveBeenCalledWith("X-Card-Source", "fallback");
 });
 it("keeps a valid saved card available during a GitHub outage", async () => {
