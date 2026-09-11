@@ -1,184 +1,82 @@
-/**
- * @file Contains end-to-end tests for the Vercel preview instance.
+/** Deployment smoke tests use repositories controlled by this fork's owner.
+ * Exact live counts deliberately belong in mocked unit tests, not remote fixtures.
  */
-import dotenv from "dotenv";
-dotenv.config();
-
-import { describe } from "@jest/globals";
+import { describe, test, expect, beforeAll, jest } from "@jest/globals";
 import axios from "axios";
-import { renderRepoCard } from "../../src/cards/repo-card.js";
-import { renderStatsCard } from "../../src/cards/stats-card.js";
-import { renderTopLanguages } from "../../src/cards/top-languages-card.js";
-import { renderWakatimeCard } from "../../src/cards/wakatime-card.js";
 
-const REPO = "dummy-cra";
-const USER = "grsdummy";
-const STATS_DATA = {
-  name: "grsdummy",
-  totalPRs: 2,
-  totalCommits: 2,
-  totalIssues: 1,
-  totalStars: 1,
-  contributedTo: 2,
-  rank: {
-    level: "A+",
-    score: 50.900829325065935,
-  },
-};
+jest.setTimeout(40000);
+let base;
+beforeAll(() => {
+  expect(process.env.VERCEL_PREVIEW_URL).toBeDefined();
+  base = new URL(process.env.VERCEL_PREVIEW_URL).origin;
+});
 
-const LANGS_DATA = {
-  TypeScript: {
-    color: "#3178c6",
-    name: "TypeScript",
-    size: 2049,
-  },
-  HTML: {
-    color: "#e34c26",
-    name: "HTML",
-    size: 1721,
-  },
-  CSS: {
-    color: "#563d7c",
-    name: "CSS",
-    size: 930,
-  },
-  Python: {
-    color: "#3572A5",
-    name: "Python",
-    size: 671,
-  },
-};
+async function request(path) {
+  const response = await axios.get(`${base}${path}`, {
+    timeout: 35000,
+    validateStatus: () => true,
+  });
+  expect(response.headers["content-type"]).toContain("image/svg+xml");
+  expect(response.data).toMatch(/<svg\b/);
+  expect(response.data).toContain("</svg>");
+  return response;
+}
 
-const WAKATIME_DATA = {
-  human_readable_range: "last week",
-  is_already_updating: false,
-  is_coding_activity_visible: false,
-  is_including_today: false,
-  is_other_usage_visible: false,
-  is_stuck: false,
-  is_up_to_date: false,
-  is_up_to_date_pending_future: false,
-  percent_calculated: 0,
-  range: "last_7_days",
-  status: "pending_update",
-  timeout: 15,
-  username: "grsdummy",
-  writes_only: false,
-};
-
-const REPOSITORY_DATA = {
-  name: "dummy-cra",
-  nameWithOwner: "grsdummy/dummy-cra",
-  isPrivate: false,
-  isArchived: false,
-  isTemplate: false,
-  stargazers: {
-    totalCount: 1,
-  },
-  description: "Dummy create react app.",
-  primaryLanguage: {
-    color: "#3178c6",
-    id: "MDg6TGFuZ3VhZ2UyODc=",
-    name: "TypeScript",
-  },
-  forkCount: 0,
-  starCount: 1,
-};
-
-const CACHE_BURST_STRING = `v=${new Date().getTime()}`;
-
-describe("Fetch Cards", () => {
-  let VERCEL_PREVIEW_URL;
-
-  beforeAll(() => {
-    process.env.NODE_ENV = "development";
-    VERCEL_PREVIEW_URL = process.env.VERCEL_PREVIEW_URL;
+describe("Live profile deployment", () => {
+  test.each([
+    [
+      "stats",
+      "/api?username=Vinayak1337&theme=merko",
+      "Vinayak's GitHub Stats",
+    ],
+    [
+      "languages",
+      "/api/top-langs?username=Vinayak1337&layout=compact&theme=merko",
+      "Most Used Languages",
+    ],
+    [
+      "repository",
+      "/api/pin?username=Vinayak1337&repo=github-readme-stats",
+      "github-readme-stats",
+    ],
+    [
+      "streak",
+      "/api/streak?username=Vinayak1337&theme=merko",
+      "CONTRIBUTION STREAK",
+    ],
+    [
+      "trophy",
+      "/api/trophy?username=Vinayak1337&theme=merko",
+      "GITHUB TROPHIES",
+    ],
+  ])("serves the %s card", async (_name, path, title) => {
+    const response = await request(path);
+    expect(response.status).toBe(200);
+    expect(response.data).toContain(title);
+    expect(response.data).not.toMatch(
+      /Something went wrong|temporarily unavailable/,
+    );
+    if (path.startsWith("/api/streak") || path.startsWith("/api/trophy")) {
+      expect(["github", "memory", "fallback"]).toContain(
+        response.headers["x-card-source"],
+      );
+      expect(
+        Number.isFinite(Date.parse(response.headers["x-card-updated-at"])),
+      ).toBe(true);
+      expect(response.data).toContain("Updated ");
+    }
   });
 
-  test("retrieve stats card", async () => {
-    expect(VERCEL_PREVIEW_URL).toBeDefined();
-
-    // Check if the Vercel preview instance stats card function is up and running.
-    await expect(
-      axios.get(`${VERCEL_PREVIEW_URL}/api?username=${USER}`),
-    ).resolves.not.toThrow();
-
-    // Get local stats card.
-    const localStatsCardSVG = renderStatsCard(STATS_DATA);
-
-    // Get the Vercel preview stats card response.
-    const serverStatsSvg = await axios.get(
-      `${VERCEL_PREVIEW_URL}/api?username=${USER}&${CACHE_BURST_STRING}`,
-    );
-
-    // Check if stats card from deployment matches the stats card from local.
-    expect(serverStatsSvg.data).toEqual(localStatsCardSVG);
-  }, 7000);
-
-  test("retrieve language card", async () => {
-    expect(VERCEL_PREVIEW_URL).toBeDefined();
-
-    // Check if the Vercel preview instance language card function is up and running.
-    console.log(
-      `${VERCEL_PREVIEW_URL}/api/top-langs/?username=${USER}&${CACHE_BURST_STRING}`,
-    );
-    await expect(
-      axios.get(
-        `${VERCEL_PREVIEW_URL}/api/top-langs/?username=${USER}&${CACHE_BURST_STRING}`,
-      ),
-    ).resolves.not.toThrow();
-
-    // Get local language card.
-    const localLanguageCardSVG = renderTopLanguages(LANGS_DATA);
-
-    // Get the Vercel preview language card response.
-    const severLanguageSVG = await axios.get(
-      `${VERCEL_PREVIEW_URL}/api/top-langs/?username=${USER}&${CACHE_BURST_STRING}`,
-    );
-
-    // Check if language card from deployment matches the local language card.
-    expect(severLanguageSVG.data).toEqual(localLanguageCardSVG);
+  test("keeps Wakatime parameter validation available without a third-party account", async () => {
+    const response = await request("/api/wakatime");
+    expect(response.status).toBe(200);
+    expect(response.data).toContain("Missing params");
   });
 
-  test("retrieve WakaTime card", async () => {
-    expect(VERCEL_PREVIEW_URL).toBeDefined();
-
-    // Check if the Vercel preview instance WakaTime function is up and running.
-    await expect(
-      axios.get(`${VERCEL_PREVIEW_URL}/api/wakatime?username=${USER}`),
-    ).resolves.not.toThrow();
-
-    // Get local WakaTime card.
-    const localWakaCardSVG = renderWakatimeCard(WAKATIME_DATA);
-
-    // Get the Vercel preview WakaTime card response.
-    const serverWakaTimeSvg = await axios.get(
-      `${VERCEL_PREVIEW_URL}/api/wakatime?username=${USER}&${CACHE_BURST_STRING}`,
-    );
-
-    // Check if WakaTime card from deployment matches the local WakaTime card.
-    expect(serverWakaTimeSvg.data).toEqual(localWakaCardSVG);
-  });
-
-  test("retrieve repo card", async () => {
-    expect(VERCEL_PREVIEW_URL).toBeDefined();
-
-    // Check if the Vercel preview instance Repo function is up and running.
-    await expect(
-      axios.get(
-        `${VERCEL_PREVIEW_URL}/api/pin/?username=${USER}&repo=${REPO}&${CACHE_BURST_STRING}`,
-      ),
-    ).resolves.not.toThrow();
-
-    // Get local repo card.
-    const localRepoCardSVG = renderRepoCard(REPOSITORY_DATA);
-
-    // Get the Vercel preview repo card response.
-    const serverRepoSvg = await axios.get(
-      `${VERCEL_PREVIEW_URL}/api/pin/?username=${USER}&repo=${REPO}&${CACHE_BURST_STRING}`,
-    );
-
-    // Check if Repo card from deployment matches the local Repo card.
-    expect(serverRepoSvg.data).toEqual(localRepoCardSVG);
+  test("does not show personal data under a different username", async () => {
+    const response = await request("/api/streak?username=other-user");
+    expect(response.status).toBe(400);
+    expect(response.data).toContain("configured for Vinayak1337");
+    expect(response.headers["cache-control"]).toContain("no-store");
   });
 });
