@@ -1,0 +1,34 @@
+name: Refresh profile card snapshots
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: profile-card-snapshots
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "24"
+      - name: Fetch live data using the existing deployment
+        run: node scripts/refresh-profile-cards.js
+      - name: Publish successful snapshots
+        run: |
+          git fetch origin profile-card-snapshots
+          git worktree add --detach .profile-card-worktree origin/profile-card-snapshots
+          cp .profile-card-output/* .profile-card-worktree/
+          cd .profile-card-worktree
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add profile.json streak.svg trophy.svg
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh profile card snapshots'
+            git push origin HEAD:profile-card-snapshots
+          fi

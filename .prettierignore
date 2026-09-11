@@ -3,3 +3,7 @@ node_modules
 *.md
 coverage
 .vercel
+
+# Pinned upstream source and generated renderer
+vendor/github-profile-trophy/
+src/profile-cards/trophy-vendor.js

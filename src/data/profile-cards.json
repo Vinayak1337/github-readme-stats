@@ -1,0 +1,27 @@
+{
+  "username": "Vinayak1337",
+  "updatedAt": "2026-09-11T22:49:40.511Z",
+  "since": "2017-12-03",
+  "streak": {
+    "current": 43,
+    "longest": 43,
+    "longestStart": "2026-07-31",
+    "longestEnd": "2026-09-11",
+    "total": 6724,
+    "activeDays": 972
+  },
+  "totalCommits": 1173,
+  "totalReviews": 2,
+  "totalFollowers": 9,
+  "totalIssues": 19,
+  "totalPullRequests": 746,
+  "totalOrganizations": 4,
+  "totalRepositories": 54,
+  "totalStargazers": 5,
+  "languageCount": 9,
+  "durationYear": 8,
+  "durationDays": 32,
+  "ancientAccount": 0,
+  "ogAccount": 0,
+  "joined2020": 0
+}

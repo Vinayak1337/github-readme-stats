@@ -1,8 +1,30 @@
 {
   "functions": {
-    "api/*.js": {
+    "api/index.js": {
       "memory": 128,
       "maxDuration": 10
+    },
+    "api/pin.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/top-langs.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/wakatime.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/streak.js": {
+      "memory": 128,
+      "maxDuration": 30,
+      "includeFiles": "src/data/profile-cards.json"
+    },
+    "api/trophy.js": {
+      "memory": 128,
+      "maxDuration": 30,
+      "includeFiles": "src/data/profile-cards.json"
     }
   },
   "redirects": [
@@ -10,5 +32,10 @@
       "source": "/",
       "destination": "https://github.com/anuraghazra/github-readme-stats"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "profile-card-snapshots": false
+    }
+  }
 }

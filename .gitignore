@@ -10,3 +10,6 @@ vercel_token
 # IDE
 .vscode
 *.code-workspace
+.env*
+.profile-card-output/
+.profile-card-worktree/
