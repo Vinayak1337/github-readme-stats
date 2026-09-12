@@ -1,4 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="495" height="260" viewBox="0 0 495 260" role="img" aria-labelledby="title desc"><title id="title">Vinayak1337&apos;s GitHub Trophies</title><desc id="desc">Organizations: SECRET, 4pt. Repositories: SSS, 54pt. PullRequest: SS, 748pt. Commits: S, 1.2kpt. Experience: AAA, 32pt. Issues: B, 19pt. Stars: C, 5pt. Followers: C, 9pt. Reviews: C, 2pt. Updated 2026-09-12 10:42 UTC.</desc><rect x=".5" y=".5" width="494" height="259" rx="4.5" fill="#0a0f0b" stroke="#e4e2e2"/><g font-family="Segoe UI, Ubuntu, Helvetica Neue, sans-serif"><text x="25" y="32" font-size="18" fill="#abd200" font-weight="600">GitHub Trophies</text><g transform="translate(11.5 45) scale(0.8363636363636363)">
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="260" viewBox="0 0 495 260" role="img" aria-labelledby="title desc"><title id="title">Vinayak1337&apos;s GitHub Trophies</title><desc id="desc">MultiLanguage: SECRET, 10pt. Organizations: SECRET, 4pt. Repositories: SSS, 55pt. PullRequest: SS, 748pt. Commits: S, 1.2kpt. Experience: AAA, 32pt. Issues: B, 19pt. Stars: C, 5pt. Followers: C, 9pt. Reviews: C, 2pt. Updated 2026-09-12 15:29 UTC.</desc><rect x=".5" y=".5" width="494" height="259" rx="4.5" fill="#0a0f0b" stroke="#e4e2e2"/><g font-family="Segoe UI, Ubuntu, Helvetica Neue, sans-serif"><text x="25" y="32" font-size="18" fill="#abd200" font-weight="600">GitHub Trophies</text><g transform="translate(11.5 45) scale(0.8363636363636363)">
+        <svg
+          x="0"
+          y="0"
+          width="110"
+          height="110"
+          viewBox="0 0 110 110"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="0.5"
+            y="0.5"
+            rx="4.5"
+            width="109"
+            height="109"
+            stroke="#e1e4e8"
+            fill="#0a0f0b"
+            stroke-opacity="0"
+            fill-opacity="0"
+          />
+          
+  
+  
+  <defs>
+    <linearGradient id="SECRET" gradientTransform="rotate(45)">
+    
+    <stop offset="0%" stop-color="red"/>
+    <stop offset="50%" stop-color="fuchsia"/>
+    <stop offset="100%" stop-color="blue"/>
+    
+    </linearGradient>
+  </defs>
+  <svg x="28" y="20" width="100" height="100" viewBox="0 0 30 30" fill="url(#SECRET)" xmlns="http://www.w3.org/2000/svg">
+    
+    <path d="M7 10h2v4H7v-4z"/>
+    <path d="M10 11c0 .552-.895 1-2 1s-2-.448-2-1 .895-1 2-1 2 .448 2 1z"/>
+    <path fill-rule="evenodd" d="M12.5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-3 2a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm-6-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-3 2a3 3 0 1 1 6 0 3 3 0 0 1-6 0z"/>
+    <path d="M3 1h10c-.495 3.467-.5 10-5 10S3.495 4.467 3 1zm0 15a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1H3zm2-1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1H5z"/>
+    <circle cx="8" cy="6" r="4" fill="#FFF" />
+    <text x="6" y="8" font-family="Courier, Monospace" font-size="7" fill="fuchsia">S</text>
+  
+  </svg>
+  
+          <text x="50%" y="18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="13" fill="#abd200">MultiLanguage</text>
+          <text x="50%" y="85" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10.5" fill="#68b587">Rainbow Lang User</text>
+          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#68b587">10pt</text>
+          
+    <style>
+    @keyframes MultiLanguageRankAnimation {
+      from {
+        width: 0px;
+      }
+      to {
+        width: 80px;
+      }
+    }
+    #MultiLanguage-rank-progress{
+      animation: MultiLanguageRankAnimation 1s forwards ease-in-out;
+    }
+    </style>
+    <rect
+      x="15"
+      y="101"
+      rx="1"
+      width="80"
+      height="3.2"
+      opacity="0.3"
+      fill="#abd200"
+    />
+    <rect
+      id="MultiLanguage-rank-progress"
+      x="15"
+      y="101"
+      rx="1"
+      height="3.2"
+      fill="#abd200"
+    />
+  
+        </svg>
+        </g><g transform="translate(106.5 45) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -78,7 +158,7 @@
     />
   
         </svg>
-        </g><g transform="translate(106.5 45) scale(0.8363636363636363)">
+        </g><g transform="translate(201.5 45) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -163,7 +243,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
   
           <text x="50%" y="18" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="13" fill="#abd200">Repositories</text>
           <text x="50%" y="85" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10.5" fill="#68b587">God Repo Creator</text>
-          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#68b587">54pt</text>
+          <text x="50%" y="97" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji" font-weight="bold" font-size="10" fill="#68b587">55pt</text>
           
     <style>
     @keyframes RepositoriesRankAnimation {
@@ -197,7 +277,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(201.5 45) scale(0.8363636363636363)">
+        </g><g transform="translate(296.5 45) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -307,7 +387,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(296.5 45) scale(0.8363636363636363)">
+        </g><g transform="translate(391.5 45) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -382,7 +462,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
         width: 0px;
       }
       to {
-        width: 14.64px;
+        width: 15.120000000000001px;
       }
     }
     #Commits-rank-progress{
@@ -408,7 +488,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(391.5 45) scale(0.8363636363636363)">
+        </g><g transform="translate(11.5 146) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -527,7 +607,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(59 146) scale(0.8363636363636363)">
+        </g><g transform="translate(106.5 146) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -607,7 +687,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(154 146) scale(0.8363636363636363)">
+        </g><g transform="translate(201.5 146) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -687,7 +767,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(249 146) scale(0.8363636363636363)">
+        </g><g transform="translate(296.5 146) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -767,7 +847,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><g transform="translate(344 146) scale(0.8363636363636363)">
+        </g><g transform="translate(391.5 146) scale(0.8363636363636363)">
         <svg
           x="0"
           y="0"
@@ -847,4 +927,4 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
     />
   
         </svg>
-        </g><text x="247.5" y="250" font-size="8.5" fill="#68b587" text-anchor="middle" opacity=".65">Updated 2026-09-12 10:42 UTC</text></g></svg>
+        </g><text x="247.5" y="250" font-size="8.5" fill="#68b587" text-anchor="middle" opacity=".65">Updated 2026-09-12 15:29 UTC</text></g></svg>
