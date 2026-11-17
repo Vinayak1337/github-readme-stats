@@ -1,14 +1,14 @@
 {
   "username": "Vinayak1337",
-  "updatedAt": "2026-11-17T07:50:52.766Z",
+  "updatedAt": "2026-11-17T20:51:50.118Z",
   "since": "2017-12-03",
   "streak": {
-    "current": 0,
+    "current": 12,
     "longest": 90,
     "longestStart": "2026-07-31",
     "longestEnd": "2026-10-28",
-    "total": 16097,
-    "activeDays": 1030
+    "total": 16968,
+    "activeDays": 1035
   },
   "totalCommits": 5982,
   "totalReviews": 2,
